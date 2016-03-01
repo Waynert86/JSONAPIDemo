@@ -100,10 +100,13 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("ContactInfo", forIndexPath: indexPath) as! ContactInfoTableViewCell
+        
+        
 
-        let object = users[indexPath.row] as! NSDate
-        cell.textLabel!.text = object.description
+        let user = users[indexPath.row]
+        cell.user = user
+        cell.configureView()
         return cell
     }
 
