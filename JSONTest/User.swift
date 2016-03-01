@@ -8,10 +8,14 @@
 
 import Foundation
 
-public class User {
-    public var name:String
+class User {
+    var name:String
+    var phone:String
+    var website:String
     
-    init(name:String) {
+    init(name:String, phone:String, website:String) {
         self.name = name
+        self.phone = phone
+        self.website = website
     }
 }

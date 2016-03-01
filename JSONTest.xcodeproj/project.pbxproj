@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4595BF341C7A4004007F2257 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4595BF331C7A4004007F2257 /* User.swift */; };
+		9EB987EF1C7FC9F600C5F6CF /* ContactInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB987EE1C7FC9F600C5F6CF /* ContactInfoTableViewController.swift */; };
+		9EB987FF1C7FCBE400C5F6CF /* ContactInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB987FE1C7FCBE400C5F6CF /* ContactInfoTableViewCell.swift */; };
+		9EB988011C7FD56A00C5F6CF /* ContactInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EB988001C7FD56A00C5F6CF /* ContactInfoViewController.swift */; };
 		A862DDBF1C76A52700DA313B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A862DDBE1C76A52700DA313B /* AppDelegate.swift */; };
 		A862DDC11C76A52700DA313B /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A862DDC01C76A52700DA313B /* MasterViewController.swift */; };
 		A862DDC31C76A52700DA313B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A862DDC21C76A52700DA313B /* DetailViewController.swift */; };
@@ -157,6 +160,9 @@
 		4595BF001C7A35EF007F2257 /* SwiftyJSON.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftyJSON.xcodeproj; path = Carthage/Checkouts/SwiftyJSON/SwiftyJSON.xcodeproj; sourceTree = SOURCE_ROOT; };
 		4595BF311C7A38E2007F2257 /* JSONTestPlay.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = JSONTestPlay.playground; sourceTree = "<group>"; };
 		4595BF331C7A4004007F2257 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9EB987EE1C7FC9F600C5F6CF /* ContactInfoTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactInfoTableViewController.swift; sourceTree = "<group>"; };
+		9EB987FE1C7FCBE400C5F6CF /* ContactInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactInfoTableViewCell.swift; sourceTree = "<group>"; };
+		9EB988001C7FD56A00C5F6CF /* ContactInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactInfoViewController.swift; sourceTree = "<group>"; };
 		A862DDBB1C76A52700DA313B /* JSONTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSONTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A862DDBE1C76A52700DA313B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A862DDC01C76A52700DA313B /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -271,6 +277,9 @@
 				A862DDC91C76A52700DA313B /* LaunchScreen.storyboard */,
 				A862DDCC1C76A52700DA313B /* Info.plist */,
 				A862DDEE1C76A8BD00DA313B /* Frameworks */,
+				9EB987EE1C7FC9F600C5F6CF /* ContactInfoTableViewController.swift */,
+				9EB987FE1C7FCBE400C5F6CF /* ContactInfoTableViewCell.swift */,
+				9EB988001C7FD56A00C5F6CF /* ContactInfoViewController.swift */,
 			);
 			path = JSONTest;
 			sourceTree = "<group>";
@@ -566,7 +575,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EB987EF1C7FC9F600C5F6CF /* ContactInfoTableViewController.swift in Sources */,
 				4595BF341C7A4004007F2257 /* User.swift in Sources */,
+				9EB987FF1C7FCBE400C5F6CF /* ContactInfoTableViewCell.swift in Sources */,
+				9EB988011C7FD56A00C5F6CF /* ContactInfoViewController.swift in Sources */,
 				A862DDC31C76A52700DA313B /* DetailViewController.swift in Sources */,
 				A862DDC11C76A52700DA313B /* MasterViewController.swift in Sources */,
 				A862DDBF1C76A52700DA313B /* AppDelegate.swift in Sources */,

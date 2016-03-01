@@ -10,10 +10,17 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
+
+
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
-    var objects = [AnyObject]()
+    // change to users 
+    var users = [User]()
+    
+
+    
+
 
 
     override func viewDidLoad() {
@@ -28,7 +35,7 @@ class MasterViewController: UITableViewController {
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
         
-        
+        // load data off url
         let url = NSURL(string: "http://jsonplaceholder.typicode.com/users")
         Alamofire.request(.GET, url!).validate().responseJSON { response in
             switch response.result {
@@ -36,6 +43,18 @@ class MasterViewController: UITableViewController {
                 if let value = response.result.value {
                     let json = JSON(value)
                     print("JSON: \(json)")
+                    
+                    // parse some users
+                    for obj in json.arrayValue {
+                        print(obj)
+                        self.users.append(User(name: obj["name"].stringValue,
+                            phone: obj["phone"].stringValue,
+                            website: obj["website"].stringValue))
+                        
+                    }
+
+                    print(self.users)
+                    self.tableView.reloadData()
                 }
             case .Failure(let error):
                 print(error)
@@ -55,18 +74,13 @@ class MasterViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    func insertNewObject(sender: AnyObject) {
-        objects.insert(NSDate(), atIndex: 0)
-        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-        self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
-    }
-
+    
     // MARK: - Segues
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                let object = objects[indexPath.row] as! NSDate
+                let object = users[indexPath.row]
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
                 controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
@@ -82,14 +96,17 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objects.count
+        return users.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("ContactInfo", forIndexPath: indexPath) as! ContactInfoTableViewCell
+        
+        
 
-        let object = objects[indexPath.row] as! NSDate
-        cell.textLabel!.text = object.description
+        let user = users[indexPath.row]
+        cell.user = user
+        cell.configureView()
         return cell
     }
 
@@ -100,7 +117,7 @@ class MasterViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            objects.removeAtIndex(indexPath.row)
+            users.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
@@ -109,4 +126,6 @@ class MasterViewController: UITableViewController {
 
 
 }
+
+
 
